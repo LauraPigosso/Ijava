@@ -66,14 +66,13 @@ public class tela_Finalizar extends JFrame {
         getContentPane().add(total);
         getContentPane().add(botaoImprimirNotaFiscal);
 
-        ImageIcon imagem = new ImageIcon("src/imagens/total.png");
-        Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);
-        ImageIcon imagemFinal = new ImageIcon(imagemRedimensionada);
-        JLabel labelImagem = new JLabel(imagemFinal);
-        labelImagem.setBounds(0,  0, 800, 500);
+        ImageIcon imagem = new ImageIcon("src/imagens/tela_finalizar.png");
+        Image imagem_figma = imagem.getImage().getScaledInstance(1024, 768, Image.SCALE_DEFAULT);
+        ImageIcon backgroud = new ImageIcon(imagem_figma);
+        JLabel BG_imagem = new JLabel(backgroud);
+        BG_imagem.setBounds(0, 0, 1024, 768);
 
-        getContentPane().add(labelImagem);
-
-        labelImagem.setVisible(true);
+        getContentPane().add(BG_imagem);
+        BG_imagem.setVisible(true);
     }
 }

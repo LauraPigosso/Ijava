@@ -81,11 +81,11 @@ public class Menu extends JFrame {
             }
         });
 
-        ImageIcon imagem = new ImageIcon("src/imagens/cardapio.png");
-        Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);
-        ImageIcon imagemFinal = new ImageIcon(imagemRedimensionada);
-        JLabel labelImagem = new JLabel(imagemFinal);
-        labelImagem.setBounds(0, 0, 800, 500);
+        ImageIcon imagem = new ImageIcon("src/imagens/Cardapio.png");
+        Image imagem_figma = imagem.getImage().getScaledInstance(1024, 768, Image.SCALE_DEFAULT);
+        ImageIcon backgroud = new ImageIcon(imagem_figma);
+        JLabel BG_imagem = new JLabel(backgroud);
+        BG_imagem.setBounds(0, 0, 1024, 768);
 
         getContentPane().add(Volatr);
         getContentPane().add(Proxima);
@@ -95,8 +95,7 @@ public class Menu extends JFrame {
         getContentPane().add(Menos);
         getContentPane().add(labelQtdProdutoAtual);
         getContentPane().add(dropdownProdutos);
-        getContentPane().add(labelImagem);
-
-        labelImagem.setVisible(true);
+        getContentPane().add(BG_imagem);
+        BG_imagem.setVisible(true);
     }
 }

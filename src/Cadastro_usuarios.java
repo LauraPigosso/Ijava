@@ -64,20 +64,20 @@ public class Cadastro_usuarios extends JFrame {
         });
 
 
-        ImageIcon imagem = new ImageIcon("src/imagens/cadastrar_usuario.png");
-        Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);
-        ImageIcon imagemFinal = new ImageIcon(imagemRedimensionada);
-        JLabel labelImagem = new JLabel(imagemFinal);
-        labelImagem.setBounds(0,  0, 800, 500);
+        ImageIcon imagem = new ImageIcon("src/imagens/Cadastrar_usuario.png");
+        Image imagem_figma = imagem.getImage().getScaledInstance(1024, 768, Image.SCALE_DEFAULT);
+        ImageIcon backgroud = new ImageIcon(imagem_figma);
+        JLabel BG_imagem = new JLabel(backgroud);
+        BG_imagem.setBounds(0, 0, 1024, 768);
 
         getContentPane().add(Caixa_CPF);
         getContentPane().add(Caixa_nome);
         getContentPane().add(Caixa_endereco);
         getContentPane().add(Cadastrar);
-        getContentPane().add(labelImagem);
         getContentPane().add(Voltar);
 
-        labelImagem.setVisible(true);
+        getContentPane().add(BG_imagem);
+        BG_imagem.setVisible(true);
     }
 
 }

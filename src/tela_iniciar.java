@@ -56,17 +56,18 @@ public class tela_iniciar extends JFrame {
         cadastro_usuario.setContentAreaFilled(false);
         cadastro_usuario.setBorderPainted(false);
 
-        ImageIcon imagem = new ImageIcon("src/imagens/tela_inicial.png");
-        Image imagemRedimensionada = imagem.getImage().getScaledInstance(800, 550, Image.SCALE_DEFAULT);
-        ImageIcon imagemFinal = new ImageIcon(imagemRedimensionada);
-        JLabel labelImagem = new JLabel(imagemFinal);
-        labelImagem.setBounds(0,  0, 800, 500);
-        getContentPane().add(labelImagem);
+        ImageIcon imagem = new ImageIcon("src/imagens/tela_iniciar.png");
+        Image imagem_figma = imagem.getImage().getScaledInstance(1024, 768, Image.SCALE_DEFAULT);
+        ImageIcon backgroud = new ImageIcon(imagem_figma);
+        JLabel BG_imagem = new JLabel(backgroud);
+        BG_imagem.setBounds(0, 0, 1024, 768);
+
 
         getContentPane().add(cadastro_restaurante);
         getContentPane().add(cadastro_pedido);
         getContentPane().add(cadastro_usuario);
 
-        labelImagem.setVisible(true);
+        getContentPane().add(BG_imagem);
+        BG_imagem.setVisible(true);
     }
 }

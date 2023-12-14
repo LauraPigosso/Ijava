@@ -5,98 +5,120 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Menu extends JFrame {
-    JButton Mais;
-    JButton Menos;
-    JLabel Caixa_total_de_itens;
-    JLabel labelQtdProdutoAtual;
-
-    String getLancheNome(Lanche lanche) {
+public class Menu  extends JFrame {
+     JButton Mais;
+     JButton Menos;
+     JLabel caixa_total;
+     JLabel valor;
+    String getLancheNome(Lanche lanche){
         return lanche.nome + " - R$ " + lanche.preco;
     }
 
-    public Menu(Restaurante restaurante, Usuario usuario) {
-        setTitle("Menu");
-        setLocation(100, 100);
-        setSize(1024, 768);
+    public Menu(Restaurante restaurante, Usuario usuario){
+        setTitle("Cardapio");
+        setBounds(100, 100, 1024, 768);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
+        int quantidadeProduto = 0;
+        int quantidadeTotal = 0;
+
         ArrayList<Lanche> pedido = new ArrayList<>();
 
-        componente_botao Volatr = new componente_botao();
-        Volatr.setBounds(26, 632, 249, 80);
-        Volatr.setContentAreaFilled(false);
 
-        componente_botao Proxima = new componente_botao();
-        Proxima.setBounds(26, 490, 249, 80);
-        Proxima.setContentAreaFilled(false);
+        componente_botao botaoVoltar = new componente_botao();
+        botaoVoltar.setBounds(24, 632, 249, 80);
 
-        componente_botao botaoOk = new componente_botao();
-        botaoOk.setBounds(585, 632, 192, 80);
 
-        String[] lista_de_itens = Arrays.stream(restaurante.cardapio.toArray()).map(n -> getLancheNome((Lanche) n)).toArray(String[]::new);
+        componente_botao proximo = new componente_botao();
+        proximo.setBounds(24, 490, 249, 80);
 
-        JComboBox<String> dropdownProdutos = new JComboBox<>(lista_de_itens);
-        dropdownProdutos.setBounds(467, 230, 428, 94);
+        componente_botao adicionar = new componente_botao();
+        adicionar.setBounds(24, 348, 249, 80);
+
+        String[] cardapio_cheio = Arrays.stream(restaurante.cardapio.toArray()).map(n -> getLancheNome((Lanche) n)).toArray(String[]::new);
+
+        JComboBox<String> Caixa_lanches = new JComboBox<>(cardapio_cheio);
+        Caixa_lanches.setBounds(448, 230, 414, 135);
 
         Mais = new componente_botao();
-        Mais.setBounds(910, 240, 80, 80);
-        Mais.setContentAreaFilled(false);
+        Mais.setBounds(873, 269, 50, 50);
 
         Menos = new componente_botao();
-        Menos.setBounds(910, 233, 80, 80);
-        Menos.setContentAreaFilled(false);
+        Menos.setBounds(359, 269, 50, 50);
 
-        labelQtdProdutoAtual = new componente_label();
-        labelQtdProdutoAtual.setBounds(623, 434, 122, 80);
+        valor = new componente_label();
+        valor.setBounds(512, 455, 191, 100);
+        valor.setText("" + quantidadeProduto);
 
-        Caixa_total_de_itens = new componente_label();
-        Caixa_total_de_itens.setBounds(540, 380, 91, 64);
+        caixa_total = new componente_label();
+        caixa_total.setBounds(678, 576, 191, 100);
+        caixa_total.setText("" + quantidadeTotal);
 
-        Volatr.addActionListener(new ActionListener() {
+        botaoVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
         });
-        Proxima.addActionListener(new ActionListener() {
+        proximo.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new tela_Finalizar(restaurante, usuario, pedido).setVisible(true);
                 dispose();
             }
         });
 
-        botaoOk.addActionListener(new ActionListener() {
+        adicionar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                int quantidadeAadicionar = Integer.parseInt(valor.getText());
+                String nomeProduto = cardapio_cheio[Caixa_lanches.getSelectedIndex()].split(" - ")[0];
+                Lanche lanche = null;
+
+                for (Lanche _lanche : restaurante.cardapio) {
+                    if (_lanche.nome.equals(nomeProduto)){
+                        lanche = _lanche;
+                    }
+                }
+
+                for (int i = 0; i < quantidadeAadicionar; i++) {
+                    pedido.add(new Lanche(lanche.nome, lanche.preco));
+                }
+
+                caixa_total.setText("" + (pedido.size()));
+                valor.setText("" + 0);
             }
         });
 
         Mais.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                valor.setText("" + (Integer.parseInt(valor.getText())+1));
+
             }
         });
 
         Menos.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                valor.setText("" + (Integer.parseInt(valor.getText())-1));
+
             }
         });
 
-        ImageIcon imagem = new ImageIcon("src/imagens/Cardapio.png");
-        Image imagem_figma = imagem.getImage().getScaledInstance(1024, 768, Image.SCALE_DEFAULT);
-        ImageIcon backgroud = new ImageIcon(imagem_figma);
-        JLabel BG_imagem = new JLabel(backgroud);
-        BG_imagem.setBounds(0, 0, 1024, 768);
+        ImageIcon imagem = new ImageIcon("src/imagens/cardapio.png");
+        Image imagemRedimensionada = imagem.getImage().getScaledInstance(1024, 768, Image.SCALE_DEFAULT);
+        ImageIcon imagemFinal = new ImageIcon(imagemRedimensionada);
+        JLabel labelImagem = new JLabel(imagemFinal);
+        labelImagem.setBounds(0,  0, 1024, 768);
 
-        getContentPane().add(Volatr);
-        getContentPane().add(Proxima);
-        getContentPane().add(botaoOk);
-        getContentPane().add(Caixa_total_de_itens);
+        getContentPane().add(botaoVoltar);
+        getContentPane().add(proximo);
+        getContentPane().add(adicionar);
+        getContentPane().add(caixa_total);
         getContentPane().add(Mais);
         getContentPane().add(Menos);
-        getContentPane().add(labelQtdProdutoAtual);
-        getContentPane().add(dropdownProdutos);
-        getContentPane().add(BG_imagem);
-        BG_imagem.setVisible(true);
+        getContentPane().add(valor);
+        getContentPane().add(Caixa_lanches);
+        getContentPane().add(labelImagem);
+        labelImagem.setVisible(true);
     }
+
 }

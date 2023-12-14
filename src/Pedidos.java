@@ -28,16 +28,19 @@ public class Pedidos extends JFrame {
         String[] listaRestaurantes = Arrays.stream(lista_de_resutaurante.toArray()).map(n -> getNome((Restaurante) n)).toArray(String[]::new);
 
         JComboBox<String> dropdownClientes = new JComboBox<>(lista_de_clientes);
-        dropdownClientes.setBounds(105, 250, 200, 30);
+        dropdownClientes.setBounds(480, 347, 346, 60);
 
         JComboBox<String> dropdownRestaurantes = new JComboBox<>(listaRestaurantes);
-        dropdownRestaurantes.setBounds(495, 250, 200, 30);
+        dropdownRestaurantes.setBounds(480, 553, 346, 60);
 
         componente_botao Voltar = new componente_botao();
-        Voltar.setBounds(40, 120, 100, 50);
+        Voltar.setBounds(26, 632, 249, 80);
+        Voltar.setContentAreaFilled(false);
 
         componente_botao Proximo = new componente_botao();
-        Proximo.setBounds(700, 50, 50, 50);
+        Proximo.setBounds(26, 490, 249, 80);
+        Proximo.setContentAreaFilled(false);
+
 
         Voltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

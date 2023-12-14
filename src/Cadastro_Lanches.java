@@ -17,21 +17,23 @@ public class Cadastro_Lanches extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
-        Font fonte = new Font("Arial", Font.BOLD, 22);
+        Font fonte = new Font("Arial", Font.BOLD, 40);
 
         Caixa_nome = new JTextField(20);
-        Caixa_nome.setBounds(150, 205, 300, 45);
+        Caixa_nome.setBounds(650, 353, 249, 54);
         Caixa_nome.setFont(fonte);
 
         Caixa_preco = new JTextField(14);
-        Caixa_preco.setBounds(150, 280, 300, 45);
+        Caixa_preco.setBounds(650, 486, 249, 54);
         Caixa_preco.setFont(fonte);
 
         componente_botao Cadastrar = new componente_botao();
-        Cadastrar.setBounds(550, 280, 80, 80);
+        Cadastrar.setBounds(643, 656, 249, 80);
+        Cadastrar.setContentAreaFilled(false);
 
         componente_botao Finalizar = new componente_botao();
-        Finalizar.setBounds(60, 440, 100, 50);
+        Finalizar.setBounds(123, 656, 249, 80);
+        Finalizar.setContentAreaFilled(false);
 
         Cadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -44,7 +46,7 @@ public class Cadastro_Lanches extends JFrame {
                 Caixa_nome.setText("");
                 Caixa_preco.setText("");
 
-                Timer timer = new Timer(1500, new ActionListener() {
+                Timer timer = new Timer(0, new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                     }
                 });

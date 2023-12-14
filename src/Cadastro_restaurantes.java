@@ -18,28 +18,30 @@ public class Cadastro_restaurantes extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
-        Font fonte = new Font("Arial", Font.BOLD, 22);
+        Font fonte = new Font("Arial", Font.BOLD, 40);
 
         Caixa_nome = new JTextField(20);
-        Caixa_nome.setSize(249, 80);
-        Caixa_nome.setLocation(150, 205);
+        Caixa_nome.setSize(249, 54);
+        Caixa_nome.setLocation(646, 283);
         Caixa_nome.setFont(fonte);
 
         Caixa_CNPJ = new JTextField(14);
-        Caixa_CNPJ.setSize(249, 80);
-        Caixa_CNPJ.setLocation(300, 45);
+        Caixa_CNPJ.setSize(249, 54);
+        Caixa_CNPJ.setLocation(646, 416);
         Caixa_CNPJ.setFont(fonte);
 
         Caixa_local = new JTextField(14);
-        Caixa_local.setSize(249, 80);
-        Caixa_local.setLocation(200, 350);
+        Caixa_local.setSize(249, 54);
+        Caixa_local.setLocation(646, 549);
         Caixa_local.setFont(fonte);
 
         componente_botao Cadastrar = new componente_botao();
-        Cadastrar.setBounds(550, 280, 80, 80);
+        Cadastrar.setBounds(643, 656, 249, 80);
+        Cadastrar.setContentAreaFilled(false);
 
         componente_botao Voltar = new componente_botao();
-        Voltar.setBounds(60, 440, 100, 50);
+        Voltar.setBounds(123, 656, 249, 80);
+        Voltar.setContentAreaFilled(false);
 
         Cadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

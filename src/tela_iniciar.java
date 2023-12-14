@@ -38,30 +38,31 @@ public class tela_iniciar extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
-        cadastro_restaurante = new JButton("Cadastre um restaurante!");
-        cadastro_restaurante.setBounds(120, 280, 300, 50);
+        cadastro_restaurante = new JButton();
+        cadastro_usuario = new JButton();
+        cadastro_pedido = new JButton();
+
         cadastro_restaurante.setOpaque(false);
-        cadastro_restaurante.setContentAreaFilled(false);
-        cadastro_restaurante.setBorderPainted(false);
-
-        cadastro_pedido = new JButton("Faça seu pedido!");
-        cadastro_pedido.setBounds(120, 340, 300, 50);
         cadastro_pedido.setOpaque(false);
-        cadastro_pedido.setContentAreaFilled(false);
-        cadastro_pedido.setBorderPainted(false);
-
-        cadastro_usuario = new JButton("Cadastre um usuário!");
-        cadastro_usuario.setBounds(120, 400, 300, 50);
         cadastro_usuario.setOpaque(false);
+
+        cadastro_restaurante.setContentAreaFilled(false);
+        cadastro_pedido.setContentAreaFilled(false);
         cadastro_usuario.setContentAreaFilled(false);
+
+        cadastro_restaurante.setBorderPainted(false);
+        cadastro_pedido.setBorderPainted(false);
         cadastro_usuario.setBorderPainted(false);
 
-        ImageIcon imagem = new ImageIcon("src/imagens/tela_iniciar.png");
+        cadastro_restaurante.setBounds(646, 262, 250, 80);
+        cadastro_pedido.setBounds(646, 430, 250, 80);
+        cadastro_usuario.setBounds(646, 598, 250, 80);
+
+        ImageIcon imagem = new ImageIcon("src/imagens/tela_inicial.png");
         Image imagem_figma = imagem.getImage().getScaledInstance(1024, 768, Image.SCALE_DEFAULT);
         ImageIcon backgroud = new ImageIcon(imagem_figma);
         JLabel BG_imagem = new JLabel(backgroud);
         BG_imagem.setBounds(0, 0, 1024, 768);
-
 
         getContentPane().add(cadastro_restaurante);
         getContentPane().add(cadastro_pedido);

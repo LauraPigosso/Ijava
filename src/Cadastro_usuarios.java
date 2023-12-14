@@ -17,25 +17,31 @@ public class Cadastro_usuarios extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
-        Font fonte = new Font("Arial", Font.BOLD, 24);
+        Font fonte = new Font("Arial", Font.BOLD, 40);
 
         Caixa_nome = new JTextField(20);
-        Caixa_nome.setBounds(150, 205, 300, 45);
+        Caixa_nome.setSize(249, 54);
+        Caixa_nome.setLocation(646, 283);
         Caixa_nome.setFont(fonte);
 
         Caixa_CPF = new JTextField(14);
-        Caixa_CPF.setBounds(150, 280, 300, 45);
+        Caixa_CPF.setSize(249, 54);
+        Caixa_CPF.setLocation(646, 416);
         Caixa_CPF.setFont(fonte);
 
         Caixa_endereco = new JTextField(14);
-        Caixa_endereco.setBounds(200, 350, 250, 45);
+        Caixa_endereco.setSize(249, 54);
+        Caixa_endereco.setLocation(646, 549);
         Caixa_endereco.setFont(fonte);
 
         componente_botao Cadastrar = new componente_botao();
-        Cadastrar.setBounds(550, 280, 80, 80);
+        Cadastrar.setBounds(643, 656, 249, 80);
+        Cadastrar.setContentAreaFilled(false);
 
         componente_botao Voltar = new componente_botao();
-        Voltar.setBounds(60, 440, 100, 50);
+        Voltar.setBounds(123, 656, 249, 80);
+        Voltar.setContentAreaFilled(false);
+
 
         Cadastrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -56,13 +62,11 @@ public class Cadastro_usuarios extends JFrame {
             }
         });
 
-
         Voltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
         });
-
 
         ImageIcon imagem = new ImageIcon("src/imagens/Cadastrar_usuario.png");
         Image imagem_figma = imagem.getImage().getScaledInstance(1024, 768, Image.SCALE_DEFAULT);

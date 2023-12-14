@@ -26,27 +26,31 @@ public class Menu extends JFrame {
         ArrayList<Lanche> pedido = new ArrayList<>();
 
         componente_botao Volatr = new componente_botao();
-        Volatr.setBounds(60, 440, 100, 50);
+        Volatr.setBounds(26, 632, 249, 80);
+        Volatr.setContentAreaFilled(false);
 
         componente_botao Proxima = new componente_botao();
-        Proxima.setBounds(700, 50, 50, 50);
+        Proxima.setBounds(26, 490, 249, 80);
+        Proxima.setContentAreaFilled(false);
 
         componente_botao botaoOk = new componente_botao();
-        botaoOk.setBounds(584, 122, 52, 55);
+        botaoOk.setBounds(585, 632, 192, 80);
 
         String[] lista_de_itens = Arrays.stream(restaurante.cardapio.toArray()).map(n -> getLancheNome((Lanche) n)).toArray(String[]::new);
 
         JComboBox<String> dropdownProdutos = new JComboBox<>(lista_de_itens);
-        dropdownProdutos.setBounds(230, 120, 200, 30);
+        dropdownProdutos.setBounds(467, 230, 428, 94);
 
         Mais = new componente_botao();
-        Mais.setBounds(446, 125, 50, 50);
+        Mais.setBounds(910, 240, 80, 80);
+        Mais.setContentAreaFilled(false);
 
         Menos = new componente_botao();
-        Menos.setBounds(154, 125, 50, 50);
+        Menos.setBounds(910, 233, 80, 80);
+        Menos.setContentAreaFilled(false);
 
         labelQtdProdutoAtual = new componente_label();
-        labelQtdProdutoAtual.setBounds(535, 120, 60, 40);
+        labelQtdProdutoAtual.setBounds(623, 434, 122, 80);
 
         Caixa_total_de_itens = new componente_label();
         Caixa_total_de_itens.setBounds(540, 380, 91, 64);
@@ -65,19 +69,16 @@ public class Menu extends JFrame {
 
         botaoOk.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Código para adicionar itens ao pedido...
             }
         });
 
         Mais.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Código para aumentar a quantidade...
             }
         });
 
         Menos.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Código para diminuir a quantidade...
             }
         });
 

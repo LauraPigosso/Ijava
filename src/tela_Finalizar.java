@@ -16,10 +16,12 @@ public class tela_Finalizar extends JFrame {
         setResizable(false);
 
         componente_botao botaoVoltar = new componente_botao();
-        botaoVoltar.setBounds(50, 430, 100, 50);
+        botaoVoltar.setBounds(26, 632, 249, 80);
+        botaoVoltar.setContentAreaFilled(false);
 
         componente_botao botaoImprimirNotaFiscal = new componente_botao();
-        botaoImprimirNotaFiscal.setBounds(130, 305, 215, 40);
+        botaoImprimirNotaFiscal.setBounds(26, 490, 249, 80);
+        botaoImprimirNotaFiscal.setContentAreaFilled(false);
         botaoVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
@@ -27,15 +29,15 @@ public class tela_Finalizar extends JFrame {
         });
 
         Label nomeRestaurante = new Label();
-        nomeRestaurante.setBounds(260, 70, 310, 45);
+        nomeRestaurante.setBounds(574, 263, 500, 45);
         nomeRestaurante.setText(restaurante.nome.toUpperCase());
 
         Label nomeCliente = new Label();
-        nomeCliente.setBounds(200, 120, 310, 45);
+        nomeCliente.setBounds(623, 396, 500, 45);
         nomeCliente.setText(usuario.nome.toUpperCase());
 
         Label total = new Label();
-        total.setBounds(150, 204, 293, 83);
+        total.setBounds(614, 580, 286, 95);
 
         double totalPedido = 0;
         for (Lanche lanche : lista_de_itens) {
